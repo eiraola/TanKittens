@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    [SerializeField] Projectile _projectileGO;
-    [SerializeField] Transform _firePoint;
+    [SerializeField] private Projectile _projectileGO;
+    public Transform firePoint;
 
     public void SpawnProjectile()
     {
         if (!_projectileGO) { return; } 
-        Instantiate(_projectileGO, _firePoint.position, _firePoint.rotation);
+        Instantiate(_projectileGO, firePoint.position, firePoint.rotation);
     
     }
 }

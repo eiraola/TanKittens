@@ -5,21 +5,30 @@ using UnityEngine;
 public class RotateToPosition : MonoBehaviour
 {
     private Vector3 _currentDirection = Vector3.zero;
-    private void Start()
-    {
-        
-    }
+    public Transform transformObject;
+
     public void SetCurrentDirection(Vector3 newPos)
     {
-        _currentDirection = (newPos - transform.position).normalized;
+        if (!transformObject)
+        {
+            return;
+        }
+        _currentDirection = (newPos - transformObject.position).normalized;
         _currentDirection.y = 0.0f;
     }
+
     private void Update()
     {
-        transform.LookAt( _currentDirection + transform.position);
+        LookToPosition();
     }
-    private void OnDrawGizmos()
+
+    private void LookToPosition()
     {
-        Gizmos.DrawSphere(_currentDirection + transform.position, 0.1f);
+        if (!transformObject)
+        {
+            return;
+        }
+        transformObject.LookAt(_currentDirection + transformObject.position);
     }
+
 }
