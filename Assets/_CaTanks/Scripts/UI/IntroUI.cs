@@ -8,26 +8,20 @@ using static UnityEditor.Progress;
 public class IntroUI : MonoBehaviour
 {
     [SerializeField] private GameObject _mainTitle;
-    [SerializeField] private GameObject _centerPointRef;
+    [SerializeField] private GameObject _startPoint;
+    [SerializeField] private GameObject _endPoint;
     [SerializeField] private CanvasGroup _menu;
 
     private void Start()
     {
-        OpeningSequence();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _mainTitle.transform.position = _startPoint.transform.position;
     }
     public void OpeningSequence()
     {
         Sequence sequence = DOTween.Sequence();
 
-        sequence.Insert(0.0f, _mainTitle.transform.DOMoveY(_centerPointRef.transform.position.y, 1.5f));
+        sequence.Insert(0.0f, _mainTitle.transform.DOMoveY(_endPoint.transform.position.y, 1.5f));
         sequence.onComplete = FadeInMenu;
-       
-
     }
 
     public void FadeInMenu()
