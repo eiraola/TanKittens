@@ -11,7 +11,7 @@ public class RotateToPosition : MonoBehaviour
     {
         if (!transformObject)
         {
-            return;
+            transformObject = transform;
         }
         _currentDirection = (newPos - transformObject.position).normalized;
         _currentDirection.y = 0.0f;
@@ -26,7 +26,7 @@ public class RotateToPosition : MonoBehaviour
     {
         if (!transformObject)
         {
-            return;
+            transformObject = transform;
         }
         transformObject.LookAt(_currentDirection + transformObject.position);
     }
