@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    [SerializeField] private Projectile _projectileGO;
+    [SerializeField] private Hitter _projectileGO;
     [SerializeField] private float _fireCadence = 1.0f;
+    [SerializeField] private ETeam _team = ETeam.None;
     private float _lastTimeShoot = 0.0f;
     public Transform firePoint;
 
@@ -15,7 +16,8 @@ public class ProjectileLauncher : MonoBehaviour
         if (_lastTimeShoot + _fireCadence > Time.time) { return; }
 
         _lastTimeShoot = Time.time;
-        Instantiate(_projectileGO, firePoint.position, firePoint.rotation);
+        Hitter hitter = Instantiate(_projectileGO, firePoint.position, firePoint.rotation);
+        hitter.team = _team;
     
     }
 }

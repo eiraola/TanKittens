@@ -14,4 +14,5 @@ public class PlayerReferences : MonoBehaviour
     public Transform PlayerHeadRef { get => _playerHeadRef;}
     public List<Transform> PlayerHeadChildren { get => _playerHeadChildren;}
     public Transform Firepoint { get => _firepoint;}
+    public UICommunications xd;
 }

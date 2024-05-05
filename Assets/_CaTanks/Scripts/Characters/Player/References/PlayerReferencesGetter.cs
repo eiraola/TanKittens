@@ -13,6 +13,7 @@ public class PlayerReferencesGetter : MonoBehaviour
     [SerializeField] private RotateToMovement _rotateToMovement;
     [SerializeField] private RotateToPosition _rotateToPosition;
     [SerializeField] private ProjectileLauncher _projectileLauncher;
+    public UICommunications xd;
 
     private void Start()
     {
