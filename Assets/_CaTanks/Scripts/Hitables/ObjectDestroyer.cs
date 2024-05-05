@@ -5,15 +5,12 @@ using UnityEngine;
 public class ObjectDestroyer : MonoBehaviour
 {
     [SerializeField] GameObject _destroyableGO;
-    void Start()
-    {
+
+    public void DestroyGO() {
         if (!_destroyableGO)
         {
             _destroyableGO = gameObject;
         }
-    }
-
-    public void DestroyGO() { 
-        Destroy(gameObject);
+        Destroy(_destroyableGO);
     }
 }
